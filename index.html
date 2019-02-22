@@ -16,6 +16,7 @@
             <input type="url" name="coverUrl" placeholder="cover image url"><br/>
             <input type="url" name="shareLink" placeholder="file share link"><br/>
             <textarea name="description" placeholder="description"></textarea><br/>
+            <textarea name="videoEmbed" placeholder="video embed code"></textarea><br/>
             <input type="text" name="fontList" placeholder="font list"><br/>
             <button type="button" onclick="addImage()">Add Image</button>
             <button type="button" onclick="remImage()">Remove Image</button>
@@ -29,6 +30,6 @@
             <button type="button" onclick="generate()">Generate!</button>
         </form>
         <p>Output:</p>
-        <textarea readonly></textarea>
+        <textarea id="output" readonly></textarea>
     </body>
 </html>
