@@ -6,30 +6,32 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <h1>Nimble Slides Post Generator</h1>
-        <p>This is a post generator for my Nimble Slides slide resource / blog project using Blogger. Once I fell into a format for posts, I wanted a quicker way to generate the html for my posts.</p>
-        <form>
-            <input type="radio" name="postType" value="impress" checked>Impress <br/>
-            <input type="radio" name="postType" value="spice-up">Spice-Up <br/>
-            <input type="radio" name="postType" value="graphics">Graphics <br/>
-            <input type="text" name="projName" placeholder="Project Name"><br/>
-            <input type="url" name="coverUrl" placeholder="cover image url"><br/>
-            <input type="url" name="shareLink" placeholder="file share link"><br/>
-            <textarea name="description" placeholder="description"></textarea><br/>
-            <textarea name="videoEmbed" placeholder="video embed code"></textarea><br/>
-            <input type="text" name="fontList" placeholder="font list"><br/>
-            <button type="button" onclick="addImage()">Add Image</button>
-            <button type="button" onclick="remImage()">Remove Image</button>
-            <div id="images">
-                <div id="img1" class="image">
-                    <input type="url" name="img1" placeholder="Image 1 URL"><br/>
-                    <input type="radio" name="img1opt" value="type1" checked>Centered, Large <br/>
-                    <input type="radio" name="img1opt" value="type2">Left, Small (after description) <br/>
+        <div class="wrapper">
+            <h1>Nimble Slides Post Generator</h1>
+            <p>This is a post generator for my Nimble Slides slide resource / blog project using Blogger. Once I fell into a format for posts, I wanted a quicker way to generate the html for my posts.</p>
+            <form>
+                <input id="test" type="radio" name="postType" value="impress" checked>Impress <br/>
+                <input type="radio" name="postType" value="spice-up">Spice-Up <br/>
+                <input type="radio" name="postType" value="graphics">Graphics <br/>
+                <input type="text" name="projName" placeholder="Project Name"><br/>
+                <input type="url" name="coverUrl" placeholder="Cover image url"><br/>
+                <input type="url" name="shareLink" placeholder="File share link"><br/>
+                <textarea name="description" placeholder="description"></textarea><br/>
+                <textarea name="videoEmbed" placeholder="Video embed code"></textarea><br/>
+                <input type="text" name="fontList" placeholder="font list"><br/>
+                <button type="button" onclick="addImage()">Add Image</button>
+                <button type="button" onclick="remImage()">Remove Image</button>
+                <div id="images">
+                    <div id="img1" class="image">
+                        <input type="url" name="img1" placeholder="Image 1 URL"><br/>
+                        <input type="radio" name="img1opt" value="type1" checked>Centered, Large <br/>
+                        <input type="radio" name="img1opt" value="type2">Left, Small (after description) <br/>
+                    </div>
                 </div>
-            </div>
-            <button type="button" onclick="generate()">Generate!</button>
-        </form>
-        <p>Output:</p>
-        <textarea id="output" readonly></textarea>
+                <button type="button" onclick="generate()">Generate!</button>
+            </form>
+            <p>Output:</p>
+            <textarea id="output" readonly></textarea>
+        </div>
     </body>
 </html>

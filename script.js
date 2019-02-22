@@ -136,6 +136,7 @@ function createOutput() {
             message = 'Download Graphics';
         }
         output += '<a class="downlink" href="' + shareLink + '" target="_blank">' + message + '</a>'
+        //TODO add support for other share link
     }
     else {
         //TODO add error alerts
