@@ -1,0 +1,76 @@
+html, body{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #333333;
+}
+
+* {
+    color: white;
+    font-family: sans-serif;
+    margin: 10px 0px 10px 0px;
+}
+
+div.wrapper {
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    left: 50%;
+    transform: translateX(50%);
+}
+
+button {
+    padding: 10px 20px 10px 20px;
+    background-color: #202020;
+    border: 1px solid white;
+}
+
+p, input, textarea, div {
+    font-size: 1.1em;
+}
+
+input[type="url"],
+input[type="text"]{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+}
+
+input[type="radio"]{
+    visibility: hidden;
+    position: relative;
+    margin-right: 10px;
+}
+
+input[type="radio"]::after {
+    content: "";
+    position: absolute;
+    background: #202020;
+    width: 15px;
+    height: 15px;
+    left: 0;
+    top: 0;
+    visibility: visible;
+    border-radius: 50%;
+    border: 1px solid white;
+    animation-duration: 1s;
+}
+input[type="radio"]:checked::after {
+    background-color: white;
+}
+
+textarea {
+    width: 50%;
+    height: 200px;
+    background: #1F1F1F;
+    border: none;
+    border-left: 1px solid white;
+    padding: 5px;
+}
+
+textarea:focus {
+    border: 1px solid white;
+    outline: none;
+}
