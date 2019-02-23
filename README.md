@@ -1,4 +1,4 @@
-# NSpostGen
+# Nimble Slides Post Generator
 Generates post of a specific format for my Nimble Slides project.
 See it working at fortunedge.github.io/NSpostGen
 
