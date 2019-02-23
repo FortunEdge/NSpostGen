@@ -114,7 +114,7 @@ function createOutput() {
     }
     //Add Font List
     if(fontList != "") {
-        output += '<div class="fontbox">' + fontList + '</div> </br>';
+        output += '<div class="separator" style="clear: both; text-align: center;"><div class="fontbox">' + fontList + '</div></div></br>';
     }
     //Add Download Link
     if(shareLink == "") {
