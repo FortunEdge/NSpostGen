@@ -127,7 +127,7 @@ function createOutput() {
         shareLink = 'https://drive.google.com/uc?export=download&id=' + id;
         let message;
         if(type == 'impress') {
-            message = 'Download Impress Teamplate';
+            message = 'Download Impress Template';
         }
         else if (type == 'spice-up') {
             message = 'Download Spice File';
