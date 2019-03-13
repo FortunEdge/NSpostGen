@@ -77,7 +77,7 @@ function createOutput() {
                 output += '<div onclick="clicker(this)" data-src="' + imageUrls[i][0] + '" class="NS-thumb-container currentIMG"></div>';
                 first = false;
             }
-            if(imageUrls[i][0] != "") {
+            else if(imageUrls[i][0] != "") {
                 output += '<div onclick="clicker(this)" data-src="' + imageUrls[i][0] + '" class="NS-thumb-container"></div>';
             }
         }
