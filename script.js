@@ -44,7 +44,10 @@ function getImages() {
         let radOpt = document.getElementsByName("img" + i + "opt");
         for (let j = 0; j<radOpt.length; j++) {
             if (radOpt[j].checked) {
-                pt2 = radOpt[j].value == "type1" ? 1 : 2;
+                if(radOpt[j].value == "type1") pt2 = 1;
+                else if(radOpt[j].value == "type2") pt2 = 2;
+                else if (radOpt[j].value == "type3") pt2 = 3;
+                //pt2 = radOpt[j].value == "type1" ? 1 : 2;
                 break;
             }
         }
@@ -65,6 +68,25 @@ function createOutput() {
             output += '<div class="separator" style="clear: both; text-align: center;"><a href="' + imageUrls[i][0] + '" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="576" data-original-width="1024" height="360" src="' + imageUrls[i][0] + '" width="640" /></a></div>';
         }
     }
+    //Add Slide Show
+    let first = true; //Test for first image
+    for (let i = 0; i < imageUrls.length; i++) {
+        if(imageUrls[i][1] == 3) {
+            if(first === true && imageUrls[i][0] != "") {
+                output += '<div class="NS-image-slides-containter"><div class="NS-current-slide"><div class="NS-aspect-ratio"></div><div class="NS-image-container"><img class="NS-current-image" src=""></div></div><div class="NS-thumbs-container">';
+                output += '<div onclick="clicker(this)" data-src="' + imageUrls[i][0] + '" class="NS-thumb-container currentIMG"></div>';
+                first = false;
+            }
+            if(imageUrls[i][0] != "") {
+                output += '<div onclick="clicker(this)" data-src="' + imageUrls[i][0] + '" class="NS-thumb-container"></div>';
+            }
+        }
+    }
+    if(first === false) {
+        output += '</div>';
+        output += '<script>loadCurrent();var timer=setInterval(advance,3e3),restartTimer=null;function clicker(e){clearInterval(timer),clearTimeout(restartTimer);let t=e.dataset.src;document.getElementsByClassName("currentIMG")[0].classList.remove("currentIMG"),setDisplay(t),e.classList.add("currentIMG"),restartTimer=setTimeout(interval,5e3)}function setDisplay(e){document.getElementsByClassName("NS-current-image")[0].src=e}function advance(){images=document.getElementsByClassName("NS-thumb-container");for(i=0;i<images.length;i++)if(images[i].classList.contains("currentIMG")){images[i].classList.remove("currentIMG"),i!=images.length-1?images[i+1].classList.add("currentIMG"):i==images.length-1&&images[0].classList.add("currentIMG");break}setDisplay(document.getElementsByClassName("currentIMG")[0].dataset.src)}function loadCurrent(){setDisplay(document.getElementsByClassName("currentIMG")[0].dataset.src)}function interval(){timer=setInterval(advance,3e3)}</script>';
+    }
+
     //Add Description
     if (description != "") {
         output += description + '<br/>';
@@ -90,7 +112,7 @@ function createOutput() {
     //Add Break
     output += "<!--more-->"
     //Add Small Images
-    let first = true; //Test for first image
+    first = true; //Test for first image
     for (let i = 0; i < imageUrls.length; i++) {
         if(imageUrls[i][1] == 2) {
             //Assuming 16 X 9
@@ -158,7 +180,7 @@ function createDiv(num) {
     let div = document.createElement("div");
     div.className = "image";
     div.id = "img" + num;
-    div.innerHTML = '<input type="url" name="img' + num + '" placeholder="Image ' + num + ' URL"><br/><input type="radio" name="img' + num + 'opt" value="type1" checked>Centered, Large <br/><input type="radio" name="img' + num + 'opt" value="type2">Left, Small (after description) <br/>';
+    div.innerHTML = '<input type="url" name="img' + num + '" placeholder="Image ' + num + ' URL"><br/><input type="radio" name="img' + num + 'opt" value="type1" checked>Centered, Large <br/><input type="radio" name="img' + num + 'opt" value="type2">Left, Small (after description) <br/><input type="radio" name="img' + num + 'opt" value="type3">Slide Show <br/>';
     return div;
 }
 
